@@ -1308,7 +1308,7 @@ else
     
 end
 ap = tansig(W2*tansig(W1*entrada'+b1)+b2)
-if(ap == 1)
+if(ap > 0)
     set(handles.txtResult, 'String', ':D')
 else
     set(handles.txtResult, 'String', 'D:')
@@ -1333,7 +1333,7 @@ end
 %?
 T = t3;
 Q = length(P);
-n1 = 300;
+n1 = 275;
 
 ep = 1;
 W1 = ep*(2*rand(n1, 30)-1);
@@ -1341,11 +1341,12 @@ b1 = ep*(2*rand(n1, 1)-1);
 
 W2 = ep*(2*rand(1, n1)-1);
 b2 = ep*(2*rand-1);
-alfa = 0.001;
+alfa = 0.000008;
 
-iteraciones = 50
+iteraciones = 1000
 
 for epocas=1:iteraciones%*****
+    sum = 0;
    for q = 1:Q
        a1 = tansig(W1*P(:,q)+b1);
        a2(q) = tansig(W2*a1+b2);     
@@ -1355,7 +1356,9 @@ for epocas=1:iteraciones%*****
        W2 = W2 - alfa*S2*a1';
        b2 = b2 - alfa*S2;
        W1 = W1 - alfa*S1*P(:,q)';
-       b1 = b1 - alfa*S1;     
+       b1 = b1 - alfa*S1;   
+       
+       sum = e^2+sum;
    end
  
 %    if(mod(100000, epocas) == 0)
@@ -1363,12 +1366,19 @@ for epocas=1:iteraciones%*****
 %       disp('Mientras tanto sigo esperando...')
 %       epocas
 %    end
+    emedio(epocas)=sum/Q;
 
-clc
-disp('Mientras tanto sigo esperando...')
-porc = ((1/iteraciones)*epocas)*100
+    clc
+    disp('Mientras tanto sigo esperando...')
+    porcentaje = ((1/iteraciones)*epocas)*100
 end
 
+for q=1:Q
+   a(q) = tansig(W2*tansig(W1*P(:,q)+b1)+b2);
+end
+a
+size(find(a<0))
+size(find(a>0))
 disp('Entrenamiento completado')
 
 
