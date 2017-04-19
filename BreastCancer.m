@@ -1309,9 +1309,9 @@ else
 end
 ap = tansig(W2*tansig(W1*entrada'+b1)+b2)
 if(ap < 0)
-    set(handles.txtResult, 'String', ':D')
+    set(handles.txtResult, 'String', 'B')
 else
-    set(handles.txtResult, 'String', 'D:')
+    set(handles.txtResult, 'String', 'M')
 end
 
 
@@ -1343,7 +1343,7 @@ W2 = ep*(2*rand(1, n1)-1);
 b2 = ep*(2*rand-1);
 alfa = 0.000008;
 
-iteraciones = 1000
+iteraciones = 2000
 
 for epocas=1:iteraciones%*****
     sum = 0;

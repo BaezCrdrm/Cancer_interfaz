@@ -1,0 +1,14 @@
+De esta página se obtuvo parte de la documentación básica para la identificación de los valores de la base de datos.
+
+https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)
+
+Dentro de la página dada, en la sección de descargas se encuentra el archivo "wdbc.dat" que es el que contiene los datos para el entrenamiento, además de más documentación acerca de los valores.
+
+[Documentación]
+https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.names
+
+[Descargas]
+https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/
+
+
+Dentro del archivo Ex.txt se agregaron ejemplos de muestras que se podían ocupar en el archivo "sample.dat" para determinar si el tumor es benigno o maligno. Se deben tomar los últimos 30 valores divididos entre ellos por una coma, y reemplazar la cadena de valores en el archivo "sample.dat".
